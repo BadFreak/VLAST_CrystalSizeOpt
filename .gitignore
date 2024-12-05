@@ -1,5 +1,6 @@
 build/*
 generate/*
-!generate/plot/*.cxx
+!generate/plot/
+!generate/plot/**
 !generate/generator.sh
 !generate/clear.sh
