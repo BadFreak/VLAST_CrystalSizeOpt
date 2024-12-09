@@ -151,6 +151,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
     G4LogicalVolume* logicCrystal
 			= new G4LogicalVolume(solidCrystal, CsI_Tl, "Crystal"); 
+    double CsI_MSL = 1*mm;
+    logicCrystal->SetUserLimits(new G4UserLimits(CsI_MSL));
 	
 	//           y
 	//			 /\					.

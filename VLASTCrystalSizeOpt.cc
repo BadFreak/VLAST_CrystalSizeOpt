@@ -84,6 +84,9 @@ int main(int argc,char** argv) {
 	
 	// PhysicsList* physics = new PhysicsList;
   	G4VUserPhysicsList* physics = new QGSP_BERT();
+	G4StepLimiterPhysics* stepLimitPhys = new G4stepLimiterPhysics();
+	stepLimitPhys->SetApplyToAll(true);
+	physics->RegisterPhysics(stepLimitPhys);
   	runManager->SetUserInitialization(physics);
   	
 	// set user action classes
