@@ -3,7 +3,7 @@ path="$PWD"
 cd $path
 
 particle=gamma
-energy=1000
+energy=5000
 condor_out="$path/out/${particle}/${energy}MeV"
 condor_err="$path/err/${particle}/${energy}MeV"
 condor_log="$path/log/${particle}/${energy}MeV"
@@ -12,7 +12,7 @@ condor_mac="$path/mac/${particle}/${energy}MeV"
 condor_root="$path/root/${particle}/${energy}MeV"
 
 mkdir -p $condor_out $condor_err $condor_log $condor_sh $condor_mac $condor_root
-rm -f $condor_out/* $condor_err/* $condor_log/* $condor_sh/* $condor_mac/* $condor_root/*
+rm -f $condor_out/* $condor_err/* $condor_log/* $condor_sh/* $condor_mac/* 
 
 JobNum=1
 n=1
@@ -32,10 +32,12 @@ do
 	/gps/energy ${energy} MeV
 	/gps/direction 0 0 1
 		
-	/gps/pos/type Point
-	/gps/pos/centre 0 0 -2 cm
+	/gps/pos/type Plane
+	/gps/pos/shape Circle
+	/gps/pos/radius 30 mm
+	/gps/pos/centre 0 0 0 mm
 
-	/run/beamOn 1000
+	/run/beamOn 10000
 
 	" > $condor_mac/event_${output_file}.mac
 	

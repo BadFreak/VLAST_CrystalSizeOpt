@@ -3,4 +3,5 @@ generate/*
 !generate/plot/
 !generate/plot/**
 !generate/generator.sh
+!generate/batch.sh
 !generate/clear.sh
